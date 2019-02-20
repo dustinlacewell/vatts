@@ -1,4 +1,5 @@
 {
+	"publisher": "ldlework",
 	"name": "vatts",
 	"displayName": "vatts",
 	"description": "Tabletop Simulator support for VSC",
@@ -235,23 +236,19 @@
 		"test": "npm run compile && node ./node_modules/vscode/bin/test"
 	},
 	"devDependencies": {
-		"vscode": "^1.1.28",
-		"@types/node": "^10.12.21",
-		"@types/mocha": "^2.2.42",
-		"tslint-consistent-codestyle": "^1.15.0",
-		"tslint-microsoft-contrib": "^6.0.0",
-		"vsce": "^1.55.0"
-	},
-	"dependencies": {
-		"@types/mkdirp": "^0.5.2",
-		"@types/nunjucks": "^3.1.0",
-		"@types/rimraf": "^2.0.2",
-		"fast-glob": "2.2.6",
-		"mkdirp": "^0.5.1",
-		"rimraf": "^2.6.3",
-		"nunjucks": "^3.1.7",
+		"@types/mocha": "2.2.48",
+		"@types/node": "10.12.26",
+		"@types/mkdirp": "0.5.1",
+		"@types/nunjucks": "3.1.1",
+		"@types/rimraf": "2.0.2",
+		"tslint-consistent-codestyle": "1.15.0",
+		"tslint-microsoft-contrib": "6.0.0",
+		"vscode": "1.1.28",
+		"typescript": "3.3.1",
+		"typescript-to-lua": "0.15.1",
+		"mkdirp": "0.5.1",
+		"nunjucks": "3.1.7",
 		"promise-socket": "3.1.1",
-		"typescript": "^3.3.1",
-		"typescript-to-lua": "file:../../tstl"
+		"rimraf": "2.0.2"
 	}
 }
