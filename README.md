@@ -308,7 +308,7 @@ function doEcho(sender, ...)
 end
 ```
 
-![](./images/userguide/advanced-game-1.PNG)
+![](./images/userguide/advanced-game-1.png)
 
 #### Game Logic
 
@@ -522,7 +522,7 @@ end
 
 An example play:
 
-![](./images/userguide/advanced-game-2.PNG)
+![](./images/userguide/advanced-game-2.png)
 
 ## Lua Bundling
 
