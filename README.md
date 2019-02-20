@@ -162,7 +162,7 @@ end
 
 After we `VATTS: Update` we can type into the TTS chat to see our message echoed back to us:
 
-![](/images/userguide/onchat-1.PNG)
+![](./images/userguide/onchat-1.png)
 
 The reply is being sent on the very same frame and can be seen ahead of the actual message. Let's delay handling of chat messages until the next frame:
 
@@ -180,7 +180,7 @@ end
 
 Now the reply is sent at the correct time:
 
-![](/images/userguide/onchat-2.PNG)
+![](./images/userguide/onchat-2.png)
 
 #### Object Scripts
 
@@ -222,9 +222,9 @@ function onChat(message, sender)
 end
 ```
 
-After updating the game we can test it out. Notice that it correctly doesn't respond to numerical input once the game is over:
+After updating the game we can test it out. Notice that it correctly ignores input once the game is over:
 
-![](/images/userguide/simple-game-1.PNG)
+![](./images/userguide/simple-game-1.png)
 
 
 ### Advanced Version
@@ -299,7 +299,7 @@ end
 
 `handleMessage` calls `parseMessage` to get the command and args. It then calls `handlerForCommand` which looks for a function with same name as the command but prefixed with `do`. So the command `.foobar` would find the function `doFoobar`. Now we can just define functions with the right name to handle chat commands!
 
-Here's an example which echo's the arguments back to chat:
+Here's an example which echos the arguments back to chat:
 
 ```lua
 function doEcho(sender, ...)
@@ -308,7 +308,7 @@ function doEcho(sender, ...)
 end
 ```
 
-![](/images/userguide/advanced-game-1.PNG)
+![](./images/userguide/advanced-game-1.PNG)
 
 #### Game Logic
 
@@ -522,7 +522,7 @@ end
 
 An example play:
 
-![](images/userguide/advanced-game-2.PNG)
+![](./images/userguide/advanced-game-2.PNG)
 
 ## Lua Bundling
 
