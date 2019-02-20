@@ -36,105 +36,105 @@
 		"commands": [
 			{
 				"command": "vatts.compiler.cleanLua",
-				"title": "Clean Lua.",
-				"category": "TTS",
+				"title": "Clean Lua",
+				"category": "VATTS",
 				"when": "editorLangId == lua"
 			},
 			{
 				"command": "vatts.compiler.cleanLuaAndBundles",
-				"title": "Clean Lua and bundles.",
-				"category": "TTS",
+				"title": "Clean Lua and Bundles",
+				"category": "VATTS",
 				"when": "editorLangId == lua"
 			},
 			{
 				"command": "vatts.compiler.compile",
-				"title": "Compile Typescript to Lua",
-				"category": "TTS"
+				"title": "Compile",
+				"category": "VATTS"
 			},
 			{
 				"command": "vatts.compiler.compileBundle",
-				"title": "Compile and bundle.",
-				"category": "TTS",
+				"title": "Compile and Bundle",
+				"category": "VATTS",
 				"when": "editorLangId == lua"
 			},
 			{
 				"command": "vatts.compiler.compileBundleUpdate",
-				"title": "Compile, bundle and update the game.",
-				"category": "TTS",
+				"title": "Compile, Bundle and Update",
+				"category": "VATTS",
 				"when": "editorLangId == lua"
 			},
 			{
 				"command": "vatts.bundler.bundle",
 				"title": "Bundle",
-				"category": "TTS",
+				"category": "VATTS",
 				"when": "editorLangId == lua"
 			},
 			{
 				"command": "vatts.bundler.bundleUpdate",
-				"title": "Bundle then update the game.",
-				"category": "TTS",
+				"title": "Bundle and Update",
+				"category": "VATTS",
 				"when": "editorLangId == lua"
 			},
 			{
 				"command": "vatts.bundler.cleanBundles",
-				"title": "Clean bundles.",
-				"category": "TTS",
+				"title": "Clean Bundles",
+				"category": "VATTS",
 				"when": "editorLangId == lua"
 			},
 			{
 				"command": "vatts.bundler.showOriginal",
 				"title": "Show Original",
-				"category": "TTS",
+				"category": "VATTS",
 				"when": "editorLangId == lua"
 			},
 			{
 				"command": "vatts.tts.evalFileAsLua",
-				"title": "Eval file as Lua",
-				"category": "TTS",
+				"title": "Eval File as Lua",
+				"category": "VATTS",
 				"when": "editorLangId == lua"
 			},
 			{
 				"command": "vatts.tts.evalBufferAsLua",
-				"title": "Eval buffer as Lua",
-				"category": "TTS",
+				"title": "Eval Buffer as Lua",
+				"category": "VATTS",
 				"when": "editorLangId == lua"
 			},
 			{
 				"command": "vatts.tts.evalSelectionAsLua",
-				"title": "Eval selection as Lua",
-				"category": "TTS",
+				"title": "Eval Selection as Lua",
+				"category": "VATTS",
 				"when": "editorLangId == lua"
 			},
 			{
 				"command": "vatts.tts.sendFileAsJSON",
-				"title": "Send file as JSON",
-				"category": "TTS",
+				"title": "Send File as JSON",
+				"category": "VATTS",
 				"when": "editorLangId == lua"
 			},
 			{
 				"command": "vatts.tts.sendBufferAsJSON",
-				"title": "Send buffer as JSON",
-				"category": "TTS",
+				"title": "Send Buffer as JSON",
+				"category": "VATTS",
 				"when": "editorLangId == lua"
 			},
 			{
 				"command": "vatts.tts.sendSelectionAsJSON",
-				"title": "Send selection as JSON",
-				"category": "TTS",
+				"title": "Send Selection as JSON",
+				"category": "VATTS",
 				"when": "editorLangId == lua"
 			},
 			{
 				"command": "vatts.tts.startServer",
-				"title": "Start listening to TTS"
+				"title": "Connect to TTS"
 			},
 			{
 				"command": "vatts.tts.stopServer",
-				"title": "Stop listening to TTS"
+				"title": "Disconnect from TTS"
 			},
 			{
 				"command": "vatts.tts.updateGame",
-				"title": "Update the current Tabletop game.",
-				"category": "TTS",
+				"title": "Update",
+				"category": "VATTS",
 				"when": "editorLangId == lua"
 			}
 		],
