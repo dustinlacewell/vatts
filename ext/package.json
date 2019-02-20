@@ -146,7 +146,7 @@
 					"type": "object",
 					"default": {
 						"input-files": [
-							"src/global.ts"
+							"ts/global.ts"
 						],
 						"output-dir": "lua"
 					},
