@@ -1,0 +1,60 @@
+{
+	"defaultSeverity": "warning",
+	"rulesDirectory": [
+		"node_modules/tslint-microsoft-contrib",
+		"node_modules/tslint-consistent-codestyle"
+	],
+	"extends": [
+		"tslint-microsoft-contrib",
+		"tslint-consistent-codestyle"
+	],
+	"rules": {
+		"early-exit": true,
+		"eofline": false,
+		"member-access": [true, "no-public"],
+		"newline-before-return": false,
+		"newline-per-chained-call": false,
+		"no-accessor-recursion": true,
+		"no-any": false,
+		"no-collapsable-if": true,
+		"no-console": false,
+		"no-default-export": false,
+		"no-else-after-return": true,
+		"no-implicit-dependencies": false,
+		"export-name": false,
+		"no-constant-condition": false,
+		"forin": false,
+		"no-for-in": false,
+		"no-parameter-reassignment": true,
+		"no-relative-imports": false,
+		"no-return-undefined": true,
+		"no-static-this": true,
+		"no-trailing-whitespace": true,
+		"no-unnecessary-else": true,
+		"no-unnecessary-type-annotation": true,
+		"no-unused": true,
+		"no-var-before-return": true,
+		"no-var-keyword": true,
+		"non-literal-fs-path": false,
+		"object-shorthand-properties-first": true,
+		"prefer-const-enum": true,
+		"prefer-type-cast": false,
+		"prefer-while": true,
+		"typedef": false,
+		"variable-name": false,
+		"naming-conventon": [
+			{
+				"type": "default",
+				"format": "strictCamelCase"
+			},
+			{
+				"type": "variable",
+				"format": "snake_case"
+			},
+			{
+				"type": "class",
+				"format": "StrictPascalCase"
+			}
+		]
+	}
+}

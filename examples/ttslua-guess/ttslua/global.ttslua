@@ -1,0 +1,123 @@
+number = nil
+lower = 0
+upper = 100
+
+
+-- functions to parse commands
+function parseArgs(text)
+    -- return an array of `text` split on whitespace
+    local args = {}
+
+    for arg in string.gmatch(text, "%S+") do
+      table.insert(args, arg)
+    end
+
+    return args
+end
+
+function parseMessage(message)
+    -- get the command and any args from `message`
+    local command = string.match(message, "^%.(%w+)")
+
+    if command == nil then
+        return
+    end
+
+    local args = string.match(message, "^%.%w+%s+(.+)")
+
+    if args ~= nil then
+        args = parseArgs(args)
+    end
+
+    return command, args
+end
+
+function handlerForCommand(command)
+    -- lookup handler for `command` from global namespace
+    local command_name = string.gsub(command, "^%a", string.upper)
+    return _G["do" .. command_name]
+end
+
+function handleMessage(message, sender, default_handler)
+    -- call function named do$FOO(sender, $ARGS) where $FOO and $ARGS are extracted from `message`
+    local command, args = parseMessage(message)
+
+    if command == nil then
+        default_handler(message, sender)
+        return
+    end
+
+    local handler = handlerForCommand(command)
+
+    if handler == nil then
+        default_handler(message, sender)
+        return
+    end
+
+    if args then
+        handler(sender, table.unpack(args))
+    else
+        handler(sender)
+    end
+end
+
+-- functions for game logic
+function start(who, new_lower, new_upper)
+    upper = new_upper or 100
+    lower = new_lower or 1
+    target = math.random(lower, upper)
+    print("Guess a number between " .. lower .. " and " .. upper .. " (inclusive!)")
+end
+
+function finish(who)
+    print(who.steam_name .. " won the game!")
+    target = nil
+end
+
+function terminate(who)
+    print(who.steam_name .. " terminated the game :(")
+    target = nil
+end
+
+function handleGuess(message, sender)
+    -- ignore messages when there's no active game
+    if target == nil then
+        return
+    end
+
+    -- check `message` as `guess` against `target`
+    local guess = tonumber(message)
+
+    -- ignore non-numeric messages
+    if guess == nil then
+        return
+    end
+
+    -- respond to the player
+    if guess == target then
+        finish(sender)
+    elseif guess < target then
+        print("Higher!")
+    else
+        print("Lower!")
+    end
+end
+
+-- command handlers
+function doEnd(who)
+    if target then
+        terminate(who)
+    end
+end
+
+function doStart(who, lower, upper)
+    if target == nil then
+        start(who, lower, upper)
+    end
+end
+
+-- actual TTS event handler
+function onChat(message, sender)
+    -- so our response always appears after the chat we're responding to
+    Wait.frames(function() handleMessage(message, sender, handleGuess) end, 1)
+end

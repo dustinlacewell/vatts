@@ -1,0 +1,257 @@
+{
+	"name": "vatts",
+	"displayName": "vatts",
+	"description": "Tabletop Simulator support for VSC",
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.31.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"main": "./out/main.js",
+	"activationEvents": [
+		"onLanguage:lua",
+		"onLanguage:typescript",
+		"onCommand:vatts.compiler.cleanLua",
+		"onCommand:vatts.compiler.cleanLuaAndBundles",
+		"onCommand:vatts.compiler.compile",
+		"onCommand:vatts.compiler.compileBundle",
+		"onCommand:vatts.compiler.compileBundleUpdate",
+		"onCommand:vatts.bundler.bundle",
+		"onCommand:vatts.bundler.bundleUpdate",
+		"onCommand:vatts.bundler.cleanBundles",
+		"onCommand:vatts.bundler.showOriginal",
+		"onCommand:vatts.tts.evalBufferAsJSON",
+		"onCommand:vatts.tts.evalFileAsJSON",
+		"onCommand:vatts.tts.evalSelectionAsJSON",
+		"onCommand:vatts.tts.sendBufferAsJSON",
+		"onCommand:vatts.tts.sendFileAsJSON",
+		"onCommand:vatts.tts.sendSelectionAsJSON",
+		"onCommand:vatts.tts.startServer",
+		"onCommand:vatts.tts.stopServer",
+		"onCommand:vatts.tts.update"
+	],
+	"contributes": {
+		"commands": [
+			{
+				"command": "vatts.compiler.cleanLua",
+				"title": "Clean Lua.",
+				"category": "TTS",
+				"when": "editorLangId == lua"
+			},
+			{
+				"command": "vatts.compiler.cleanLuaAndBundles",
+				"title": "Clean Lua and bundles.",
+				"category": "TTS",
+				"when": "editorLangId == lua"
+			},
+			{
+				"command": "vatts.compiler.compile",
+				"title": "Compile Typescript to Lua",
+				"category": "TTS"
+			},
+			{
+				"command": "vatts.compiler.compileBundle",
+				"title": "Compile and bundle.",
+				"category": "TTS",
+				"when": "editorLangId == lua"
+			},
+			{
+				"command": "vatts.compiler.compileBundleUpdate",
+				"title": "Compile, bundle and update the game.",
+				"category": "TTS",
+				"when": "editorLangId == lua"
+			},
+			{
+				"command": "vatts.bundler.bundle",
+				"title": "Bundle",
+				"category": "TTS",
+				"when": "editorLangId == lua"
+			},
+			{
+				"command": "vatts.bundler.bundleUpdate",
+				"title": "Bundle then update the game.",
+				"category": "TTS",
+				"when": "editorLangId == lua"
+			},
+			{
+				"command": "vatts.bundler.cleanBundles",
+				"title": "Clean bundles.",
+				"category": "TTS",
+				"when": "editorLangId == lua"
+			},
+			{
+				"command": "vatts.bundler.showOriginal",
+				"title": "Show Original",
+				"category": "TTS",
+				"when": "editorLangId == lua"
+			},
+			{
+				"command": "vatts.tts.evalFileAsLua",
+				"title": "Eval file as Lua",
+				"category": "TTS",
+				"when": "editorLangId == lua"
+			},
+			{
+				"command": "vatts.tts.evalBufferAsLua",
+				"title": "Eval buffer as Lua",
+				"category": "TTS",
+				"when": "editorLangId == lua"
+			},
+			{
+				"command": "vatts.tts.evalSelectionAsLua",
+				"title": "Eval selection as Lua",
+				"category": "TTS",
+				"when": "editorLangId == lua"
+			},
+			{
+				"command": "vatts.tts.sendFileAsJSON",
+				"title": "Send file as JSON",
+				"category": "TTS",
+				"when": "editorLangId == lua"
+			},
+			{
+				"command": "vatts.tts.sendBufferAsJSON",
+				"title": "Send buffer as JSON",
+				"category": "TTS",
+				"when": "editorLangId == lua"
+			},
+			{
+				"command": "vatts.tts.sendSelectionAsJSON",
+				"title": "Send selection as JSON",
+				"category": "TTS",
+				"when": "editorLangId == lua"
+			},
+			{
+				"command": "vatts.tts.startServer",
+				"title": "Start listening to TTS"
+			},
+			{
+				"command": "vatts.tts.stopServer",
+				"title": "Stop listening to TTS"
+			},
+			{
+				"command": "vatts.tts.updateGame",
+				"title": "Update the current Tabletop game.",
+				"category": "TTS",
+				"when": "editorLangId == lua"
+			}
+		],
+		"configuration": {
+			"type": "object",
+			"title": "Vatts",
+			"properties": {
+				"vatts.compiler": {
+					"type": "object",
+					"default": {
+						"input-files": [
+							"src/global.ts"
+						],
+						"output-dir": "lua"
+					},
+					"properties": {
+						"input-files": {
+							"type": "array",
+							"description": "What Typescript files to compile to Lua."
+						},
+						"output-dir": {
+							"type": "string",
+							"description": "Output directory for Typescript compiled Lua."
+						}
+					}
+				},
+				"vatts.bundler": {
+					"type": "object",
+					"default": {
+						"input-files": [
+							"lua/global/index.lua"
+						],
+						"output-dir": "ttslua",
+						"search-dirs": [],
+						"module-start-marker": "^-- '([^']+)' STARTS HERE",
+						"module-end-marker": "^-- '([^']+)' ENDS HERE"
+					},
+					"properties": {
+						"input-files": {
+							"type": "array",
+							"description": "Which files to compile to Lua."
+						},
+						"output-dir": {
+							"type": "string",
+							"description": "Output directory for bundled Lua packages."
+						},
+						"search-dirs": {
+							"type": "array",
+							"description": "Paths to search for required packages."
+						},
+						"module-start-marker": {
+							"type": "string",
+							"description": "Regex for locating the start of sourcemapped modules."
+						},
+						"module-end-marker": {
+							"type": "string",
+							"description": "Regex for locating the end of sourcemapped modules."
+						}
+					}
+				},
+				"vatts.tts": {
+					"type": "object",
+					"default": {
+						"client-port": 39999,
+						"server-port": 39998,
+						"auto-listen": true,
+						"game-scripts": {
+							"global": "ttslua/global.ttslua"
+						}
+					},
+					"properties": {
+						"client-port": {
+							"type": "number",
+							"description": "Port for sending messages to TTS."
+						},
+						"server-port": {
+							"type": "number",
+							"description": "Port for receiving messages from TTS."
+						},
+						"auto-listen": {
+							"type": "boolean",
+							"description": "Automatically start TTS listen server."
+						},
+						"game-scripts": {
+							"type": "object",
+							"description": "Mapping of GUIDs to scripts."
+						}
+					}
+				}
+			}
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"postinstall": "node ./node_modules/vscode/bin/install",
+		"test": "npm run compile && node ./node_modules/vscode/bin/test"
+	},
+	"devDependencies": {
+		"vscode": "^1.1.28",
+		"@types/node": "^10.12.21",
+		"@types/mocha": "^2.2.42",
+		"tslint-consistent-codestyle": "^1.15.0",
+		"tslint-microsoft-contrib": "^6.0.0",
+		"vsce": "^1.55.0"
+	},
+	"dependencies": {
+		"@types/mkdirp": "^0.5.2",
+		"@types/nunjucks": "^3.1.0",
+		"@types/rimraf": "^2.0.2",
+		"fast-glob": "2.2.6",
+		"mkdirp": "^0.5.1",
+		"rimraf": "^2.6.3",
+		"nunjucks": "^3.1.7",
+		"promise-socket": "3.1.1",
+		"typescript": "^3.3.1",
+		"typescript-to-lua": "file:../../tstl"
+	}
+}
