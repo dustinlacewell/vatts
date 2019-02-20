@@ -51,7 +51,7 @@ export function activate(context: vscode.ExtensionContext) {
         utils.registerCommand(context, ele[0], ele[1]);
     });
 
-    if (utils.getConfig<Boolean>('vatts.tts', 'auto-listen')) {
+    if (true || utils.getConfig<Boolean>('vatts.tts', 'auto-listen')) {
         vscode.commands.executeCommand('vatts.tts.startServer');
     }
 }

@@ -1,8 +1,8 @@
 {
-	"publisher": "ldlework",
 	"name": "vatts",
+	"publisher": "ldlework",
 	"displayName": "vatts",
-	"description": "Tabletop Simulator support for VSC",
+	"description": "Tabletop Simulator support for VSCode",
 	"version": "0.0.1",
 	"engines": {
 		"vscode": "^1.31.0"
@@ -230,25 +230,29 @@
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
+		"fix": "rmdir /s /q node_modules && rm package-lock.json && npm i --no-optional && npm dedupe",
 		"compile": "tsc -p ./",
 		"watch": "tsc -watch -p ./",
 		"postinstall": "node ./node_modules/vscode/bin/install",
 		"test": "npm run compile && node ./node_modules/vscode/bin/test"
 	},
 	"devDependencies": {
-		"@types/mocha": "2.2.48",
-		"@types/node": "10.12.26",
-		"@types/mkdirp": "0.5.1",
+		"vscode": "^1.1.28",
+		"tslint": "^5.12.1",
+		"@types/node": "^10.12.21",
+		"@types/mocha": "^2.2.42",
 		"@types/nunjucks": "3.1.1",
 		"@types/rimraf": "2.0.2",
+		"@types/mkdirp": "0.5.1",
 		"tslint-consistent-codestyle": "1.15.0",
-		"tslint-microsoft-contrib": "6.0.0",
-		"vscode": "1.1.28",
-		"typescript": "3.3.1",
-		"typescript-to-lua": "0.15.1",
+		"tslint-microsoft-contrib": "6.0.0"
+	},
+	"dependencies": {
+		"typescript": "^3.3.1",
 		"mkdirp": "0.5.1",
 		"nunjucks": "3.1.7",
-		"promise-socket": "3.1.1",
-		"rimraf": "2.0.2"
+		"promise-socket": "^3.1.1",
+		"rimraf": "2.0.2",
+		"typescript-to-lua": "0.15.1"
 	}
 }
