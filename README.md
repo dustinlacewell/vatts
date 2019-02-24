@@ -6,7 +6,7 @@ VSCode and Tabletop Simulator
 
 Vatts is an extension for VSCode to help with Tabletop Simulator mod development:
 
-- Send scripts to Lua
+- Send scripts to Tabletop Simulator
 - Bundle multiple Lua files as one
 - Transpile Typescript to Lua
 
